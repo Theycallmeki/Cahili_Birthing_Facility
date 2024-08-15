@@ -24,6 +24,7 @@
   </script>
 </head>
 <body>
+  
   <div class="container border mt-3 bg-light">
     <div class="row">
       <div class="col-md-6 p-5 bg-primary text-white">
@@ -65,11 +66,13 @@
           <textarea class="form-control" id="message" rows="3"></textarea>
         </div>
         <button class="btn btn-primary" onclick="sendMail()">Submit</button>
-        <button class="btn btn-secondary mt-3" onclick="goBack()">Go Back</button>
+        <button class="btn btn-primary" onclick="goBack()">Go Back</button>
+
       </div>
     </div>
   </div>
 
+  
   <script>
     function goBack() {
       window.history.back();
