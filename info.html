@@ -8,18 +8,7 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .carousel-item img {
-            height: 400px; /* Adjust the height as needed */
-            object-fit: cover; /* Ensures images cover the container while maintaining aspect ratio */
-        }
-        .tab-content {
-            display: none; /* Hide all tab contents by default */
-        }
-        .tab-content.active {
-            display: block; /* Show the active tab content */
-        }
-    </style>
+    
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -34,9 +23,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
-               
                 <li class="nav-item">
-                    
                     <a href="#" class="nav-link" onclick="history.back()">Go Back</a>
                 </li>
             </ul>
@@ -52,7 +39,7 @@
                         <a class="nav-link active" href="#" data-target="#benefits-content">Benefits</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-target="#contents-content">Contents</a>
+                        <a class="nav-link" href="#" data-target="#contents-content">Staffs</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-target="#requirements-content">Requirements</a>
@@ -65,8 +52,10 @@
                     <p class="card-text">Details about the benefits of the program or service.</p>
                 </div>
                 <div id="contents-content" class="tab-content">
-                    <h5 class="card-title">Contents</h5>
-                    <p class="card-text">Information on the contents or main topics covered.</p>
+                    <h5 class="card-title">Staff</h5>
+                    <div id="staff-container" class="row">
+                        <!-- Staff members will be inserted here -->
+                    </div>
                 </div>
                 <div id="requirements-content" class="tab-content">
                     <h5 class="card-title">Requirements</h5>
@@ -81,17 +70,17 @@
     <footer class="text-center bg-body-tertiary">
         <!-- Grid container -->
         <div class="container pt-4">
-          <!-- Section: Social media -->
-          <section class="mb-4">
-            <!-- Facebook -->
-            <a class="btn btn-link btn-floating btn-lg text-body m-1" href="https://www.facebook.com/CahiliBF" role="button" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <!-- Google -->
-            <a class="btn btn-link btn-floating btn-lg text-body m-1" href="https://plus.google.com/YourProfile" role="button" target="_blank"><i class="fab fa-google"></i></a>
-          </section>
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a class="btn btn-link btn-floating btn-lg text-body m-1" href="https://www.facebook.com/CahiliBF" role="button" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <!-- Google -->
+                <a class="btn btn-link btn-floating btn-lg text-body m-1" href="https://plus.google.com/YourProfile" role="button" target="_blank"><i class="fab fa-google"></i></a>
+            </section>
         </div>
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
-          © 2024 Birthing Clinic. All rights reserved.
+            © 2024 Birthing Clinic. All rights reserved.
         </div>
     </footer>
 
@@ -123,6 +112,40 @@
                 // Activate the clicked tab
                 this.classList.add('active');
             });
+        });
+
+        // Staff members data
+        const staffMembers = [
+            { id: 1, name: 'Virgie Perry', role: 'Athletic Trainer', imageUrl: 'https://bootdey.com/img/Content/avatar/avatar1.png' },
+            { id: 2, name: 'John Doe', role: 'Fitness Coach', imageUrl: 'https://bootdey.com/img/Content/avatar/avatar2.png' },
+            { id: 3, name: 'Jane Smith', role: 'Yoga Instructor', imageUrl: 'https://bootdey.com/img/Content/avatar/avatar3.png' },
+            { id: 4, name: 'Mike Johnson', role: 'Nutritionist', imageUrl: 'https://bootdey.com/img/Content/avatar/avatar4.png' },
+            { id: 5, name: 'Nigga Miyuki', role: 'Nutritionist', imageUrl: 'https://bootdey.com/img/Content/avatar/avatar4.png' }
+        ];
+
+        const staffContainer = document.getElementById('staff-container');
+
+        // Generate staff member cards
+        staffMembers.forEach(staff => {
+            const staffHTML = `
+                <div class="col-sm-6 col-md-4 col-lg-3 single-team">
+                    <div class="inner">
+                        <div class="team-img">
+                            <img src="${staff.imageUrl}" alt="${staff.name}">
+                        </div>
+                        <div class="team-content">
+                            <h4>${staff.name}</h4>
+                            <h5>${staff.role}</h5>
+                            <div class="team-social">
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-linkedin"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            staffContainer.innerHTML += staffHTML;
         });
     </script>
 </body>
